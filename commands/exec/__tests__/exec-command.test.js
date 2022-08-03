@@ -105,9 +105,11 @@ describe("ExecCommand", () => {
         cwd: path.join(testDir, "packages/package-2"),
         pkg: expect.objectContaining({
           name: "package-2",
+          version: "1.2.3"
         }),
         env: expect.objectContaining({
           LERNA_PACKAGE_NAME: "package-2",
+          LERNA_PACKAGE_VERSION: "1.2.3",
           LERNA_ROOT_PATH: testDir,
         }),
         extendEnv: false,

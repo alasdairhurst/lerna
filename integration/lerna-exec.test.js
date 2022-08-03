@@ -88,6 +88,21 @@ package-2
 `);
 });
 
+test("lerna exec echo $LERNA_PACKAGE_VERSION", async () => {
+  const args = [
+    "exec",
+    "--concurrency=1",
+    "echo",
+    process.platform === "win32" ? "%LERNA_PACKAGE_VERSION%" : "$LERNA_PACKAGE_VERSION",
+  ];
+
+  const { stdout } = await cliRunner(cwd)(...args);
+  expect(stdout).toMatchInlineSnapshot(`
+1.0.0
+1.0.0
+`);
+});
+
 test("lerna exec --parallel", async () => {
   const args = [
     "exec",

@@ -113,6 +113,7 @@ class ExecCommand extends Command {
       extendEnv: false,
       env: Object.assign({}, this.env, {
         LERNA_PACKAGE_NAME: pkg.name,
+        LERNA_PACKAGE_VERSION: pkg.version,
         LERNA_ROOT_PATH: this.project.rootPath,
       }),
       reject: this.bail,
